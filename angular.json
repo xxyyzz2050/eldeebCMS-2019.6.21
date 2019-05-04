@@ -154,6 +154,41 @@
           }
         }
       }
+    },
+    "eldeeb": {
+      "root": "projects/eldeeb",
+      "sourceRoot": "projects/eldeeb/src",
+      "projectType": "library",
+      "prefix": "d",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/eldeeb/tsconfig.lib.json",
+            "project": "projects/eldeeb/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/eldeeb/src/test.ts",
+            "tsConfig": "projects/eldeeb/tsconfig.spec.json",
+            "karmaConfig": "projects/eldeeb/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/eldeeb/tsconfig.lib.json",
+              "projects/eldeeb/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "eldeebCMS"
