@@ -12,10 +12,15 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "types": [],
-    "lib": [
-      "dom",
-      "es2018"
-    ]
+    "lib": ["dom","es2018"],
+    "downlevelIteration": true,
+    "typeRoots": ["../../node_modules/@types"],
+    "strict": false,
+    "watch": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": false
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

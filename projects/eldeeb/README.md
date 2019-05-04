@@ -1,24 +1,25 @@
-# Eldeeb
+# Eldeeb library
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+a library for common tasks, such as databases, files, data, ... compatible with angular but can be used in any node.js
 
-## Code scaffolding
+written in TypeScript to provide a good typed code, but you can use the compiled js code located in 'dist' dir.
 
-Run `ng generate component component-name --project eldeeb` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project eldeeb`.
-> Note: Don't forget to add `--project eldeeb` or else it will be added to the default project in your `angular.json` file.
+used in [eldeebCMS project](https://github.com/xxyyzz2050/eldeebCMS), a modern CMS build on [Angular Uiversal](https://angular.io)
 
-## Build
+# examples
 
-Run `ng build eldeeb` to build the project. The build artifacts will be stored in the `dist/` directory.
+let eldeeb = new eldeeb({ log:true, debug: false });
 
-## Publishing
+eldeeb.db("mongoDB",{/_conection options_/}).then(..)
 
-After building your library with `ng build eldeeb`, go to the dist folder `cd dist/eldeeb` and run `npm publish`.
+eldeeb.run("test",()=>{/_ run a function or a promise and it will log details about run process _/})
 
-## Running unit tests
+eldeeb.promise([()=>getData(),()=>getAnotherData()]).done(..)
 
-Run `ng test eldeeb` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## install
 
-## Further help
+run `npm i eldeeb` or `npm i -g eldeeb`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## contributing
+
+your contributing is always welcome.

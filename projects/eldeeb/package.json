@@ -1,8 +1,43 @@
 {
   "name": "eldeeb",
   "version": "0.0.1",
+  "description": "a library for common tasks, such as databases, files, data, ... compatible with angular but can be used in any node.js or javascript project",
+  "keywords": [
+    "eldeeb",
+    "eldeebCMS",
+    "angular",
+    "javascript",
+    "typescript",
+    "node",
+    "nodejs",
+    "angular-material"
+  ],
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/core": "^7.2.0",
+    "mongoose": "^5.5.3",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.1.25",
+    "@types/mongoose": "^5.3.26",
+    "@types/node": "^11.13.7",
+    "@types/shortid": "0.0.29"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxyyzz2050/eldeeb.git"
+  },
+  "author": "eldeeb<facebook.com/eng.dibo>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xxyyzz2050/eldeeb/issues"
+  },
+  "homepage": "https://github.com/xxyyzz2050/eldeeb#readme",
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

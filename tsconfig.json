@@ -26,16 +26,10 @@
     "allowSyntheticDefaultImports": true,
     "noEmitOnError": false,
     "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ],
-      "eldeeb": [
-        "dist/eldeeb"
-      ],
-      "eldeeb/*": [
-        "dist/eldeeb/*"
-      ]
+      "*": ["node_modules/*", "src/types/*"],
+      "eldeeb": ["projects/eldeeb"],
+      "eldeeb/*": ["projects/eldeeb/src/lib/*"],
+      "$eldeeb/*": ["src/app/eldeeb/*"]
     }
   }
 }
