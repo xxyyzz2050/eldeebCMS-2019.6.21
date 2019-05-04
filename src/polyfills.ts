@@ -1,4 +1,17 @@
-/**
+/*
+  // a workaround for ReferenceError: global is not defined, caused by: node_modules/bson/lib/bson/map.js
+  //https://stackoverflow.com/a/50377270 and https://stackoverflow.com/a/50356546
+  //this code can be moved to /index.html, inside <script> tag
+  var global = global || window;
+  //var Buffer = Buffer || []; //Buffer is not a constructor
+  global.Buffer = global.Buffer || require("buffer").Buffer;
+  var process = process || {
+    env: { DEBUG: undefined },
+    version: []
+  };
+  */
+
+ /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
  *

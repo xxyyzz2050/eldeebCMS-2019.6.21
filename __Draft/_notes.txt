@@ -1,0 +1,14 @@
+[todo]
+- package.json/scripts/lib: build all libraries > ng build lib1 & lib2 ... --watch
+
+==========================
+[25/4/2019] created with @angular/cli 7.3.8
+
+
+=================================
+
+undo commit (via atom)
+1- undo commits
+2- right click -> force push to remove from github, or pull to redu (undelete the commit)
+
+====

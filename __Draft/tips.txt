@@ -1,0 +1,20 @@
+create an angular workspace:
+> npm i -g @angular/cli@latest
+> ng new <name> --style=scss --routing --verbose=true
+
+convert to angular universal:
+> cd <name>
+> ng add @nguniversal/express-engine --clientProject eldeebCMS
+
+generate module example and generate component index inside it:
+> ng g m example --routig
+> ng g c example/index --module example
+> ng g s example/myService
+
+create an angular library, and generate a component
+>ng g library <name> --prefix=<prefix=lib> //then build it >ng build <name>, to use it import {myLibraryModule} from 'myLibrary' because it's added in tsconfig.ts->path
+> ng g c <folder>/<componentName> --project=<projectName> //then export it in public_api.ts
+
+clone local repo to github:
+> git remote add origin https://github.com/xxyyzz2050/eldeebCMS.git
+> git push -u origin master

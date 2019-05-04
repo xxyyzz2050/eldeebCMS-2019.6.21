@@ -1,27 +1,45 @@
 # EldeebCMS
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+a modern CMS build on [Angular Uiversal](https://angular.io)
+
+[Demo](https://angular.io)
+
+- automatically generates codes for native mobile apps (Android & IOS) and a modern website.
+
+- very advanced SEO
+
+- chat system.
+
+- app notifications & browser notifications.
+
+- social tools.
+
+- e-commerce tools.
+
+- modern UI & friendly UX.
+
+- restful API's.
+
+- integration with most common sites such as Facebook & Twitter, ...
+
+- SPA or SSR or pre-rendering mode.
+
+- can be run serverless.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+run `npm start` or `npm run ssr` or use run.bat.
 
-## Code scaffolding
+Navigate to `http://localhost:4200/`,
+The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To build the project run `npm build`, use `--prod` flag for a production build.
 
-## Build
+To add more components run `ng generate component|directive|pipe|service|class|guard|interface|enum|module <name>`, you can use `--module` flag to link the generated component with an existing module.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To execute the unit Tests using [Karma](https://karma-runner.github.io) run `npm test`,
+or `npm e2e` to execute the end-to-end unit tests via [Protractor](http://www.protractortest.org/).
 
-## Running unit tests
+## contributing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+your contributing is always welcome.

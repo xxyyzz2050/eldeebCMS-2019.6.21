@@ -1,19 +1,20 @@
 {
   "name": "eldeeb-cms",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o --watch",
+    "ssr": "ng build eldeeb  && npm run build:client-and-server-bundles && npm run compile:server && npm run serve:ssr --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
+    "serve:ssr": "nodemon dist/server --inspaect",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run eldeebCMS:server:production"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/cdk": "~7.3.7",
@@ -43,9 +44,9 @@
     "@angular/cli": "~7.3.8",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.0.0",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -60,5 +61,20 @@
     "tslint": "~5.11.0",
     "typescript": "~3.2.2",
     "webpack-cli": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxyyzz2050/eldeebCMS"
+  },
+  "author": "eldeeb<facebook.com/eng.dibo>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xxyyzz2050/eldeebCMS"
+  },
+  "homepage": "https://github.com/xxyyzz2050/eldeebCMS#readme",
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
