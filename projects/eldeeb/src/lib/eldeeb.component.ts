@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'd-eldeeb',
   template: `
     <p>
-      eldeeb works!
+      eldeeb library!
     </p>
   `,
   styles: []
