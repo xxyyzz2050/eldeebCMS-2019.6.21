@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class EldeebService {
 
-  constructor() { }
+  constructor() { console.log("*** EldeebService ***") }
+  
+  test() {console.log("*** EldeebService.test() ***");}
 }

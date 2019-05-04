@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './error/error.component';
-import { EldeebModule } from "eldeeb";
+import { EldeebModule, EldeebService } from "eldeeb";
 
 @NgModule({
   declarations: [
@@ -21,4 +21,9 @@ import { EldeebModule } from "eldeeb";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(public eldeebService: EldeebService) {
+    console.log("*** AppModule started ***");
+    eldeebService.test();
+  }
+}

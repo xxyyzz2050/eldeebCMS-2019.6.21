@@ -7,7 +7,6 @@ const routes: Routes = [
     path: "articles",
     loadChildren: "./articles/articles.module#ArticlesModule"
   },
-  { path: "test", loadChildren: "./test/test.module#TestModule" },
 
   { path: "", redirectTo: "", pathMatch: "full" },
   { path: "**", component: ErrorComponent }
