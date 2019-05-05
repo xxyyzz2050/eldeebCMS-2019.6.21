@@ -12,11 +12,13 @@ ECHO 3. babel
 ECHO 4. install
 ECHO 5. open command line here
 ECHO 6. generate documentation
+ECHO 6. build the libraries
 ECHO.
 
-CHOICE /C 123456 /N /M "select"
+CHOICE /C 1234567 /N /M "select"
 set task=%ERRORLEVEL%
 :: Don't add any space in task=
+IF %task% == 7 GOTO build
 IF %task% == 6 GOTO doc
 IF %task% == 5 GOTO cmd
 IF %task% == 4 GOTO install
@@ -28,6 +30,11 @@ IF %task% == 1 GOTO run
 echo %task%
 pause
 :run
+
+: as now we use the source of the libraries instead of 'dist', we don't need to build the libraries before starting the project, so we will skip this CHOICE.
+: the code below - untill the end of this block- will not run
+GOTO start
+
 CHOICE /T 5 /D N /M "build libraries? if you didn't changes to any library, you don't need to build them"
 IF ERRORLEVEL 2 GOTO start
 IF ERRORLEVEL 1 GOTO build
