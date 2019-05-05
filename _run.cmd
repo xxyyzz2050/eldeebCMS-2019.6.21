@@ -51,7 +51,7 @@ pause
 :start
 if %task%==1 (
 ECHO starting the server and listining to localhost:4200
-call ng serve --open --watch
+call npm run start
 ) else (
 ECHO starting the server in SSR mode, and listining to localhost:4200
 call npm run ssr
