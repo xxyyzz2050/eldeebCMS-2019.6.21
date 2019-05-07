@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --watch",
-    "ssr": "ng build eldeeb  && npm run build:client-and-server-bundles && npm run compile:server && npm run serve:ssr --open",
+    "ssr": "npm run build:client-and-server-bundles && npm run compile:server && npm run serve:ssr --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
