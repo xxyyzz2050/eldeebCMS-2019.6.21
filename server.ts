@@ -14,7 +14,7 @@ enableProdMode();
 // Express server
 const app = express();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4200;
 const DIST_FOLDER = join(process.cwd(), "dist/browser");
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -35,8 +35,11 @@ app.engine(
 app.set("view engine", "html");
 app.set("views", DIST_FOLDER);
 
-// Example Express Rest API endpoints
-// app.get('/api/**', (req, res) => { });
+app.get("/articles/api/*", (req, res) => {
+  //todo: GetArticlesService.getArticle(req.url)
+  res.json({ title: "title", content: "Content" });
+});
+
 // Serve static files from /browser
 app.get(
   "*.*",
