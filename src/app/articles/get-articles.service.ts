@@ -14,7 +14,7 @@ export class GetArticlesService {
   constructor(private http: HttpClient) {}
 
   /**
-   * sends a request to express with will trigger this.getArticle
+   * sends a request to /server.ts (express) witch will trigger GetArticlesAPI.getArticle()
    * @method request
    * @param  url     [description]
    * @return [description]
@@ -24,12 +24,5 @@ export class GetArticlesService {
     return this.http.get<ARTICLE | ARTICLE[]>(
       `http://localhost:4200/articles/api/${url}`
     );
-  }
-
-  //todo: use edeeb/db-mongoDB; return schema.article | schema.article[]
-  // todo: 1-parseURL into parts {type:article|category, id}, 2-cache()
-  getArticle(url): any {
-    console.log("** GetArticlesService **");
-    return { title: "Title", content: "Content" };
   }
 }
