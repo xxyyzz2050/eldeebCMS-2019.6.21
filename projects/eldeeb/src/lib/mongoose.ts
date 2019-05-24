@@ -30,7 +30,7 @@ export function connect(options: types.ConnectionOptions | string) {
   let uri: string,
     defaultOptions = {
       useCreateIndex: true,
-      //useNewUrlParser: true, //https://mongoosejs.com/docs/deprecations.html; now it gives "MongoError: authentication fail"
+      useNewUrlParser: true, //https://mongoosejs.com/docs/deprecations.html; now it gives "MongoError: authentication fail"
       useFindAndModify: false,
       bufferCommands: false, //https://mongoosejs.com/docs/connections.html
       autoIndex: false,
@@ -57,7 +57,7 @@ export function connect(options: types.ConnectionOptions | string) {
     }
   }
 
-  if (options.uri.substr(0, 7) != "mongodb")
+  if (uri.substr(0, 7) != "mongodb")
     uri = "mongodb" + (options.srv ? "+srv" : "") + "://" + uri;
 
   delete options["uri"];
