@@ -1,6 +1,5 @@
 import { types } from "./types"; //to use /// <reference path="./types.ts"/> remove export from ./types-> export namespace types{}
 import * as mongoose from "../../../projects/eldeeb/src/lib/mongoose"; //todo: from "eldeeb/mongoose"
-import nativeMongoose from "mongoose";
 
 export class GetArticlesAPI {
   //link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}  or /shortId  --> {{type=article|category}}-{{id}}
@@ -17,13 +16,6 @@ export class GetArticlesAPI {
   //todo: cache(type/id, ()=>db.get()); edeeb/db-mongoDB, eldeeb/files->cache()
   //todo: return schema.article | schema.article[]
   private fetchData(parts: types.parts) {
-    nativeMongoose
-      .connect(
-        "mongodb+srv://xxyyzz2050:Xx159753%2540%2540@cluster-test-kuwit.gcp.mongodb.net/test"
-      )
-      .then(() => console.log("Native connected"))
-      .catch(err => console.log(err));
-
     mongoose
       .connect({
         auth: ["xxyyzz2050", "Xx159753@@"],
