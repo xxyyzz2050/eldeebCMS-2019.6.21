@@ -3,9 +3,12 @@ import * as mongoose from "../../../projects/eldeeb/src/lib/mongoose"; //todo: f
 
 export class GetArticlesAPI {
   //link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}  or /shortId  --> {{type=article|category}}-{{id}}
-  get(url: string): any {
+  get(url: string): Promise<any> {
     //todo: Observable<types.article | types.post[]>
-    return this.fetchData(this.getParts(url));
+    return this.fetchData(this.getParts(url)).then(x => {
+      console.log("XX:", x);
+      return x;
+    });
   }
 
   private getParts(url: string): types.parts {
@@ -16,20 +19,21 @@ export class GetArticlesAPI {
   //todo: cache(type/id, ()=>db.get()); edeeb/db-mongoDB, eldeeb/files->cache()
   //todo: return schema.article | schema.article[]
   private fetchData(parts: types.parts) {
-    mongoose
+    return mongoose
       .connect({
         auth: ["xxyyzz2050", "Xx159753@@"],
         host: "cluster-test-kuwit.gcp.mongodb.net",
         srv: true,
         db: "test"
       })
-      .then(db => {
+      .then(() => {
         console.log("===model===");
-        let myModel = mongoose.model("test", { test: "string" }).model;
-        console.log("model: ", myModel);
+        //let myModel = mongoose.model("articles", { title: "string" }).model;
+        //console.log("model: ", myModel);
         //todo: create models
+
+        return { title: "Title", content: "Content" };
       })
       .catch(err => console.log(err));
-    return { title: "Title", content: "Content" };
   }
 }

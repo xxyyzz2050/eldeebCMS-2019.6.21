@@ -37,11 +37,9 @@ app.set("views", DIST_FOLDER);
 
 app.get("/articles/api/*", (req, res) => {
   //todo: GetArticlesService.getArticle(req.url)
-
   const GetArticlesAPI = require("./src/app/articles/get-articles.api")
     .GetArticlesAPI;
-  const data = new GetArticlesAPI().get(req.url);
-  res.json(data);
+  new GetArticlesAPI().get(req.url).then(data => res.json(data));
 });
 
 // Serve static files from /browser

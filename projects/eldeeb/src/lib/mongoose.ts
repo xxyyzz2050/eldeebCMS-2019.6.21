@@ -68,13 +68,11 @@ export function connect(options: types.ConnectionOptions | string) {
 
   console.log("uri: ", uri);
   //todo: return Promise<this mongoose, not Mongoose>
-  return mongoose
-    .connect(
-      uri,
-      options
-    )
-    .then(() => console.log("connected"))
-    .catch(err => console.log(err));
+
+  return mongoose.connect(
+    uri,
+    options
+  );
 }
 
 export function model(
