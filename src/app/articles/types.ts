@@ -3,6 +3,16 @@ export namespace types {
     [key: string]: any;
   }
 
+  export interface post extends Object {
+    //and article snippet
+    title: string;
+    content: string; //sammary
+    user: author;
+    time: number | { createdAt: number; modifiedAt: number }; //change to updatedAt to be compitable with mongoose.SchemaOptions.time
+  }
+
+  export interface article extends post {}
+
   export interface author extends Object {
     name: string; // |[string,string]
     image: string;
@@ -11,10 +21,8 @@ export namespace types {
     gender: string;
   }
 
-  export interface post extends Object {
-    title: string;
-    content: string; //sammary
-    user: author;
-    time: number | { createdAt: number; modifiedAt: number }; //change to updatedAt to be compitable with mongoose.SchemaOptions.time
+  export interface parts {
+    type: "article" | "category" | "index";
+    id?: number;
   }
 }

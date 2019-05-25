@@ -37,15 +37,10 @@ app.set("views", DIST_FOLDER);
 
 app.get("/articles/api/*", (req, res) => {
   //todo: GetArticlesService.getArticle(req.url)
-  require("./projects/eldeeb/src/lib/mongoose").connect({
-    auth: ["xxyyzz2050", "Xx159753@@"],
-    host: "cluster-test-kuwit.gcp.mongodb.net",
-    srv: true,
-    db: "test"
-  }); //tmp: for test
+
   const GetArticlesAPI = require("./src/app/articles/get-articles.api")
     .GetArticlesAPI;
-  const data = new GetArticlesAPI().getArticle(req.url);
+  const data = new GetArticlesAPI().get(req.url);
   res.json(data);
 });
 

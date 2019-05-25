@@ -1,11 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-
-export interface ARTICLE {
-  title: string;
-  content: string;
-}
+import { types } from "./types";
 
 @Injectable({
   providedIn: "root"
@@ -20,8 +16,8 @@ export class GetArticlesService {
    * @return [description]
    */
   request(url): any {
-    //todo: Observable<schema.article>
-    return this.http.get<ARTICLE | ARTICLE[]>(
+    //todo: Observable<...>
+    return this.http.get<types.article | types.post[]>(
       `http://localhost:4200/articles/api/${url}`
     );
   }

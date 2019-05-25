@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-
+//todo: export default mongoose (instead of export every method separately)
 import mongoose from "mongoose";
 
 export namespace types {
@@ -66,10 +66,15 @@ export function connect(options: types.ConnectionOptions | string) {
   delete options["db"];
   delete options["srv"];
 
-  return mongoose.connect(
-    uri,
-    options
-  );
+  console.log("uri: ", uri);
+  //todo: return Promise<this mongoose, not Mongoose>
+  return mongoose
+    .connect(
+      uri,
+      options
+    )
+    .then(() => console.log("connected"))
+    .catch(err => console.log(err));
 }
 
 export function model(
