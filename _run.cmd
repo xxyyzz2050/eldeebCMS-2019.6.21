@@ -3,26 +3,28 @@
 cd /D "%~dp0"
 CLS
 
-
+:top
 ECHO.
 ECHO what you want to do?
-ECHO 1. run
-ECHO 2. run (ssr)
-ECHO 3. babel
-ECHO 4. install
-ECHO 5. open command line here
-ECHO 6. generate documentation
-ECHO 6. build the libraries
+ECHO 1. run (ssr/dev mode)
+ECHO 2. run (ssr/prod mode)
+ECHO 3. run (serve)
+ECHO 4. test
+ECHO 5. install
+ECHO 6. open command line here
+ECHO 7. generate documentation
+ECHO 8. build the libraries
 ECHO.
 
-CHOICE /C 1234567 /N /M "select"
+CHOICE /C 12345678 /T 5 /D 1 /N /M "select (default: run ssr/dev)"
 set task=%ERRORLEVEL%
 :: Don't add any space in task=
-IF %task% == 7 GOTO build
-IF %task% == 6 GOTO doc
-IF %task% == 5 GOTO cmd
-IF %task% == 4 GOTO install
-IF %task% == 3 GOTO babel
+IF %task% == 8 GOTO build
+IF %task% == 7 GOTO doc
+IF %task% == 6 GOTO cmd
+IF %task% == 5 GOTO install
+IF %task% == 4 GOTO test
+IF %task% == 3 GOTO run
 IF %task% == 2 GOTO run
 IF %task% == 1 GOTO run
 :: Note - list %task% in decreasing order
@@ -30,10 +32,10 @@ IF %task% == 1 GOTO run
 echo %task%
 pause
 :run
+GOTO start
 
 : as now we use the source of the libraries instead of 'dist', we don't need to build the libraries before starting the project, so we will skip this CHOICE.
 : the code below - untill the end of this block- will not run
-GOTO start
 
 CHOICE /T 5 /D N /M "build libraries? if you didn't changes to any library, you don't need to build them"
 IF ERRORLEVEL 2 GOTO start
@@ -50,12 +52,20 @@ pause
 
 :start
 if %task%==1 (
-ECHO starting the server and listining to localhost:4200
+ECHO starting the server in SSR/dev mode, and listining to localhost:4200
+call npm run dev
+) else if %task%==2 (
+ECHO starting the server in SSR/prod mode, and listining to localhost:4200
 call npm run start
 ) else (
-ECHO starting the server in SSR mode, and listining to localhost:4200
-call npm run ssr
-)
+ECHO starting the server in browser mode "serve", and listining to localhost:4200
+ECHO warning! routs that need to connect to the server using HttpClient will break
+call npm run serve
+) 
+GOTO End
+
+:test
+call npm run test
 GOTO End
 
 :install
@@ -85,6 +95,7 @@ GOTO End
 
 :End
 pause
+GOTO top
 
 :notes:
 ::in dev mode don't build with ssr (to watch for changes)
