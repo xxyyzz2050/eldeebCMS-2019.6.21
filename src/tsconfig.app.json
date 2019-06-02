@@ -5,7 +5,10 @@
     "types": []
   },
   "exclude": [
-    "test.ts",    
-    "**/*.spec.ts"
+    "test.ts",
+    "**/*.spec.ts",
+    "**/*.tns.ts",
+    "**/*.android.ts",
+    "**/*.ios.ts"
   ]
 }
