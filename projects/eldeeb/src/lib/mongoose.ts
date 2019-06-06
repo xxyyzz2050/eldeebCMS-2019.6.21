@@ -7,10 +7,6 @@ export namespace types {
     [key: string]: any;
   }
   export interface ConnectionOptions extends mongoose.ConnectionOptions {
-    uri?: string;
-    srv?: boolean;
-    host?: string | [string]; //host1:port1,...
-    auth?: [string, string];
     db?: string;
   }
   export interface model extends types.Object {
@@ -18,59 +14,61 @@ export namespace types {
     methods?: [];
     virtuals?: [];
     indexes?: []; //or:{indexName: value}
+    //todo: add model properties
   }
+  export type uri =
+    | string
+    | {
+        auth: [string, string];
+        host?: string | string[]; //host1:port1,...
+        srv?: boolean;
+      }
+    | [string, string, string | string[], boolean]; //[user,pass,host,srv]
 }
 
 Object.keys(mongoose).forEach(key => {
   exports[key] = mongoose[key]; //todo: ES export i.e export key = mongoose[key]
 });
 
-export function connect(options: types.ConnectionOptions | string) {
+export function connect(uri: types.uri, options: types.ConnectionOptions) {
   console.log("*** mongoose.connect() ***");
-  let uri: string,
-    defaultOptions = {
-      useCreateIndex: true,
-      useNewUrlParser: true, //https://mongoosejs.com/docs/deprecations.html; now it gives "MongoError: authentication fail"
-      useFindAndModify: false,
-      bufferCommands: false, //https://mongoosejs.com/docs/connections.html
-      autoIndex: false,
-      retryWrites: true
-    };
-  if (typeof options == "string") {
-    uri = options;
-    options = defaultOptions;
-  } else {
-    options = Object.assign(options, defaultOptions);
+  let defaultOptions = {
+    //todo: export static defaultConnectionOptions={..}
+    useCreateIndex: true,
+    useNewUrlParser: true, //https://mongoosejs.com/docs/deprecations.html; now it gives "MongoError: authentication fail"
+    useFindAndModify: false,
+    bufferCommands: false, //https://mongoosejs.com/docs/connections.html
+    autoIndex: false,
+    retryWrites: true
+  };
 
-    if (!options.uri) {
-      if (!options["host"]) options["host"] = "localhost:27017";
-      else if (options["host"] instanceof Array)
-        options["host"] = options["host"].join(",");
-      uri =
-        encode(options["auth"][0]) +
-        ":" +
-        encode(options["auth"][1]) +
-        "@" +
-        options["host"] +
-        "/" +
-        options["db"];
-    }
+  if (uri instanceof Object) {
+    uri = [
+      (uri as types.Object).auth[0], //todo: don't repeate (uri as types.Object)
+      (uri as types.Object).auth[1],
+      (uri as types.Object).host,
+      (uri as types.Object).srv
+    ];
   }
 
-  if (uri.substr(0, 7) != "mongodb")
-    uri = "mongodb" + (options.srv ? "+srv" : "") + "://" + uri;
+  let srv = false;
+  if (uri instanceof Array) {
+    if (!uri[2]) uri[2] = "localhost:27017";
+    else if (uri[2] instanceof Array) uri[2] = uri[2].join(",");
+    srv = uri[3];
+    uri = `${encode(uri[0])}:${encode(uri[1])}@${uri[2]}/${options["db"]}`;
+  }
 
-  delete options["uri"];
-  delete options["auth"];
-  delete options["host"];
-  delete options["db"];
-  delete options["srv"];
-
+  if ((<string>uri).substr(0, 7) != "mongodb")
+    uri = "mongodb" + (srv ? "+srv" : "") + "://" + uri;
   console.log("uri: ", uri);
-  //todo: return Promise<this mongoose, not Mongoose>
 
+  delete options["db"];
+  options = Object.assign(options, defaultOptions);
+
+  //todo: return Promise<this mongoose, not Mongoose>
   return mongoose.connect(
-    uri,
+    <string>uri,
     options
   );
 }
@@ -94,6 +92,6 @@ export function model(
   return { schema, model };
 }
 
-function encode(str: string) {
+export function encode(str: string) {
   return encodeURIComponent(str).replace(/%/g, "%25");
 }
