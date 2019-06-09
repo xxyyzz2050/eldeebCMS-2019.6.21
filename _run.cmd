@@ -95,6 +95,7 @@ GOTO End
 
 :End
 pause
+cls
 GOTO top
 
 :notes:
