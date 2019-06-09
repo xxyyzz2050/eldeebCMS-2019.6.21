@@ -1,11 +1,15 @@
 /// <reference types="mongoose" />
-//todo: export default mongoose (instead of export every method separately)
+
+//todo: export default mongoose (instead of export every method separately) i.e import mongoose, not import * as mongoose ..
 import mongoose from "mongoose";
+import { exportAll } from "./general";
 
 export namespace types {
+  //todo: merge `namespace types` from ./index.d.ts
   export interface Object {
     [key: string]: any;
   }
+
   export interface ConnectionOptions extends mongoose.ConnectionOptions {
     db?: string;
   }
@@ -22,15 +26,18 @@ export namespace types {
         auth: [string, string];
         host?: string | string[]; //host1:port1,...
         srv?: boolean;
+        db?: string;
       }
-    | [string, string, string | string[], boolean]; //[user,pass,host,srv]
+    | [string, string, string | string[], boolean, string]; //[user,pass,host,srv,db]
 }
 
+/*
 Object.keys(mongoose).forEach(key => {
   exports[key] = mongoose[key]; //todo: ES export i.e export key = mongoose[key]
-});
+});*/
+exportAll(mongoose);
 
-export function connect(uri: types.uri, options: types.ConnectionOptions) {
+export function connect(uri: types.uri, options?: types.ConnectionOptions) {
   console.log("*** mongoose.connect() ***");
   let defaultOptions = {
     //todo: export static defaultConnectionOptions={..}
@@ -42,29 +49,32 @@ export function connect(uri: types.uri, options: types.ConnectionOptions) {
     retryWrites: true
   };
 
-  if (uri instanceof Object) {
-    uri = [
-      (uri as types.Object).auth[0], //todo: don't repeate (uri as types.Object)
-      (uri as types.Object).auth[1],
-      (uri as types.Object).host,
-      (uri as types.Object).srv
-    ];
-  }
-
   let srv = false;
-  if (uri instanceof Array) {
-    if (!uri[2]) uri[2] = "localhost:27017";
-    else if (uri[2] instanceof Array) uri[2] = uri[2].join(",");
-    srv = uri[3];
-    uri = `${encode(uri[0])}:${encode(uri[1])}@${uri[2]}/${options["db"]}`;
+  if (typeof uri !== "string") {
+    if (uri instanceof Array) {
+      uri = {
+        auth: [uri[0], uri[1]],
+        host: uri[2],
+        srv: uri[3],
+        db: uri[4]
+      };
+    }
+
+    srv = uri["srv"];
+    if (!uri["host"]) uri["host"] = "localhost:27017";
+    else if (uri["host"] instanceof Array) uri["host"] = uri["host"].join(",");
+
+    uri = `${encode(uri["auth"][0])}:${encode(uri["auth"][1])}@${uri["host"]}/${
+      uri["db"]
+    }`;
   }
 
   if ((<string>uri).substr(0, 7) != "mongodb")
     uri = "mongodb" + (srv ? "+srv" : "") + "://" + uri;
   console.log("uri: ", uri);
 
-  delete options["db"];
-  options = Object.assign(options, defaultOptions);
+  options = Object.assign(options || {}, defaultOptions);
+  console.log("options:", options);
 
   //todo: return Promise<this mongoose, not Mongoose>
   return mongoose.connect(
