@@ -35,11 +35,12 @@ app.engine(
 app.set("view engine", "html");
 app.set("views", DIST_FOLDER);
 
-app.get("/articles/api/*", (req, res) => {
+app.get("/articles/api/*", async (req, res) => {
   //todo: GetArticlesService.getArticle(req.url)
+  //todo: do we have to make the callback async?
   const GetArticlesAPI = require("./src/app/articles/get-articles.api")
     .GetArticlesAPI;
-  new GetArticlesAPI().get(req.url).then(data => res.json(data));
+  await new GetArticlesAPI().get(req.url).then(data => res.json(data));
 });
 
 // Serve static files from /browser

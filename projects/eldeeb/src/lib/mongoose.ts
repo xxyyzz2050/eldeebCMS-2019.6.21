@@ -103,5 +103,5 @@ export function model(
 }
 
 export function encode(str: string) {
-  return encodeURIComponent(str).replace(/%/g, "%25");
+  return encodeURIComponent(str); //.replace(/%/g, "%25");
 }

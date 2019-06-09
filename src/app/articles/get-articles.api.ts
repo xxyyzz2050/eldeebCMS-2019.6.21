@@ -20,7 +20,7 @@ export class GetArticlesAPI {
       .connect({
         auth: ["xxyyzz2050", "Xx159753@@"],
         host: "cluster-test-kuwit.gcp.mongodb.net",
-        //srv: true, //todo: enabling srv mode causes that neither .then() or .catche() runs
+        srv: true, //todo: enabling srv mode causes that neither .then() or .catche() runs
         db: "test"
       })
       .then(db => {
