@@ -5,10 +5,7 @@ export class GetArticlesAPI {
   //link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}  or /shortId  --> {{type=article|category}}-{{id}}
   get(url: string): Promise<any> {
     //todo: Observable<types.article | types.post[]>
-    return this.fetchData(this.getParts(url)).then(x => {
-      console.log("XX:", x);
-      return x;
-    });
+    return this.fetchData(this.getParts(url)); //.then(x => console.log("get:", x));
   }
 
   private getParts(url: string): types.parts {
@@ -23,11 +20,11 @@ export class GetArticlesAPI {
       .connect({
         auth: ["xxyyzz2050", "Xx159753@@"],
         host: "cluster-test-kuwit.gcp.mongodb.net",
-        srv: true,
+        //srv: true, //todo: enabling srv mode causes that neither .then() or .catche() runs
         db: "test"
       })
-      .then(() => {
-        console.log("===model===");
+      .then(db => {
+        console.log("===db===", db);
         //let myModel = mongoose.model("articles", { title: "string" }).model;
         //console.log("model: ", myModel);
         //todo: create models
