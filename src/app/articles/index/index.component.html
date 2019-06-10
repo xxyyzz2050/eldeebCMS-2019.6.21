@@ -1,1 +1,16 @@
-{{ article | json }}
+<mat-card *ngFor="let article of articles">
+  <mat-card-header>
+    <div mat-card-avatar><img src="{{ article.author.img }}" /></div>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>{{ article.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{article.img}}" />
+  <mat-card-content>{{ article.content }} </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary">LIKE</button>
+    <button mat-flat-button color="accent">SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+<hr />
+{{ articles | json }}
