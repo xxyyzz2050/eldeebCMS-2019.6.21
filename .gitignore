@@ -4,7 +4,7 @@
 __Draft/gitignore/*
 __old
 *.lnk
-
+src/app/_temp
 #package-lock.json
 #it is better to commit pacjage-lock.json, https://stackoverflow.com/a/50868690
 
