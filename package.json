@@ -19,7 +19,8 @@
     "serve:ssr": "nodemon dist/server --inspaect",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles-dev": "ng build --prod=false && ng run eldeebCMS:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run eldeebCMS:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run eldeebCMS:server:production",
+    "github": "ng build --prod --output-path docs --base-href /eldeebCMS/"
   },
   "private": false,
   "dependencies": {
