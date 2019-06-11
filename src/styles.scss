@@ -2,4 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-*{max-width:100%}
+*{max-width:100%; box-sizing: border-box;}
+
+.masonry { /* Masonry container */
+  column-count: 4; /*todo: use @media to change coloumn-count for responsive desing */
+  column-gap: 1em;
+}
+
+
+.masonry .masonry-item { /* Masonry bricks or child elements */
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+}
