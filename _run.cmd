@@ -61,7 +61,7 @@ call npm run start
 ECHO starting the server in browser mode "serve", and listining to localhost:4200
 ECHO warning! routs that need to connect to the server using HttpClient will break
 call npm run serve
-) 
+)
 GOTO End
 
 :test

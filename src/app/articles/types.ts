@@ -3,26 +3,26 @@ export namespace types {
     [key: string]: any;
   }
 
-  export interface post extends Object {
-    //and article snippet
+  export interface Post extends Object {
+    // and article snippet
     title: string;
-    content: string; //sammary
-    user: author;
-    time: number | { createdAt: number; modifiedAt: number }; //change to updatedAt to be compitable with mongoose.SchemaOptions.time
+    content: string; // sammary
+    user: Author;
+    time: number | { createdAt: number; modifiedAt: number }; // change to updatedAt to be compitable with mongoose.SchemaOptions.time
   }
 
-  export interface article extends post {}
+  export interface Article extends Post {}
 
-  export interface author extends Object {
+  export interface Author extends Object {
     name: string; // |[string,string]
     image: string;
-    title: string; //job position or country/city
+    title: string; // job position or country/city
     subtitle: string;
     gender: string;
   }
 
-  export interface parts {
-    type: "article" | "category" | "index";
+  export interface Parts {
+    type: 'article' | 'category' | 'index';
     id?: number;
   }
 }

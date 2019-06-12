@@ -1,46 +1,48 @@
-import { types } from "./types"; //to use /// <reference path="./types.ts"/> remove export from ./types-> export namespace types{}
-import * as mongoose from "../../../projects/eldeeb/src/lib/mongoose"; //todo: from "eldeeb/mongoose"
-import * as fs from "../../../projects/eldeeb/src/lib/fs";
+import { types } from './types'; // to use /// <reference path="./types.ts"/> remove export from ./types-> export namespace types{}
+import * as mongoose from '../../../projects/eldeeb/src/lib/mongoose'; // todo: from "eldeeb/mongoose"
+import * as fs from '../../../projects/eldeeb/src/lib/fs';
 
 export class GetArticlesAPI {
-  //link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}  or /shortId  --> {{type=article|category}}-{{id}}
+  /* link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}
+   or /shortId  --> {{type=article|category}}-{{id}}
+*/
   get(url: string): Promise<any> {
-    //todo: Observable<types.article | types.post[]>
-    return fs.cache("src/app/_temp/test.json", () =>
+    // todo: Observable<types.article | types.post[]>
+    return fs.cache('src/app/_temp/test.json', () =>
       this.fetchData(this.getParts(url))
     );
   }
 
-  private getParts(url: string): types.parts {
-    //url= {type}-{id}
-    return { type: "article", id: 1 };
+  private getParts(url: string): types.Parts {
+    // url= {type}-{id}
+    return { type: 'article', id: 1 };
   }
 
-  //todo: cache(type/id, ()=>db.get()); edeeb/db-mongoDB, eldeeb/files->cache()
-  //todo: return schema.article | schema.article[]
-  private fetchData(parts: types.parts) {
+  // todo: cache(type/id, ()=>db.get()); edeeb/db-mongoDB, eldeeb/files->cache()
+  // todo: return schema.article | schema.article[]
+  private fetchData(parts: types.Parts) {
     return {
-      title: "article title",
-      subtitle: "article sub-title",
-      content: "=========== content ============",
-      author: { name: ["first", "last"], img: "assets/test/avatar.jpg" },
-      img: "assets/test/post-image.jpg"
+      title: 'article title',
+      subtitle: 'article sub-title',
+      content: '=========== content ============',
+      author: { name: ['first', 'last'], img: 'assets/test/avatar.jpg' },
+      img: 'assets/test/post-image.jpg'
     };
 
     return mongoose
       .connect({
-        auth: ["xxyyzz2050", "Xx159753@@"],
-        host: "cluster-test-kuwit.gcp.mongodb.net",
-        srv: true, //todo: enabling srv mode causes that neither .then() or .catche() runs
-        db: "test"
+        auth: ['xxyyzz2050', 'Xx159753@@'],
+        host: 'cluster-test-kuwit.gcp.mongodb.net',
+        srv: true, // todo: enabling srv mode causes that neither .then() or .catche() runs
+        db: 'test'
       })
       .then(db => {
-        console.log("===db===", db);
-        //let myModel = mongoose.model("articles", { title: "string" }).model;
-        //console.log("model: ", myModel);
-        //todo: create models
+        console.log('===db===', db);
+        // let myModel = mongoose.model("articles", { title: "string" }).model;
+        // console.log("model: ", myModel);
+        // todo: create models
 
-        return { title: "Title", content: "Content" };
+        return { title: 'Title', content: 'Content' };
       })
       .catch(err => console.log(err));
   }

@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { types } from "./types";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { types } from './types';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class GetArticlesService {
   constructor(private http: HttpClient) {}
@@ -16,8 +16,8 @@ export class GetArticlesService {
    * @return [description]
    */
   request(url): any {
-    //todo: Observable<...>
-    return this.http.get<types.article | types.post[]>(
+    // todo: Observable<...>
+    return this.http.get<types.Article | types.Post[]>(
       `http://localhost:4200/articles/api/${url}`
     );
   }

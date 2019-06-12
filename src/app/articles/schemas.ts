@@ -1,8 +1,8 @@
-//schemas for mongoose; for typescript types use ./types.ts
+// schemas for mongoose; for typescript types use ./types.ts
 export const article = {
   fielde: {
-    title: "string",
-    content: "string"
+    title: 'string',
+    content: 'string'
   },
   options: {},
   methods: {},
