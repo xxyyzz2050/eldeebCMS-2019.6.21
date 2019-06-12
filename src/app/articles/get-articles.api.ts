@@ -1,6 +1,7 @@
 import { types } from './types'; // to use /// <reference path="./types.ts"/> remove export from ./types-> export namespace types{}
-import * as mongoose from '../../../projects/eldeeb/src/lib/mongoose'; // todo: from "eldeeb/mongoose"
-import * as fs from '../../../projects/eldeeb/src/lib/fs';
+import * as mongoose from 'eldeeb/mongoose';
+import * as fs from 'eldeeb/fs';
+import config from 'config';
 
 export class GetArticlesAPI {
   /* link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}
@@ -30,12 +31,7 @@ export class GetArticlesAPI {
     };
 
     return mongoose
-      .connect({
-        auth: ['xxyyzz2050', 'Xx159753@@'],
-        host: 'cluster-test-kuwit.gcp.mongodb.net',
-        srv: true, // todo: enabling srv mode causes that neither .then() or .catche() runs
-        db: 'test'
-      })
+      .connect(config.db)
       .then(db => {
         console.log('===db===', db);
         // let myModel = mongoose.model("articles", { title: "string" }).model;

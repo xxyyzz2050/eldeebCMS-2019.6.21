@@ -24,7 +24,8 @@
       "*": ["node_modules/*", "src/types/*"],
       "eldeeb": ["projects/eldeeb"],
       "eldeeb/*": ["projects/eldeeb/src/lib/*"],
-      "$eldeeb/*": ["src/app/eldeeb/*"]
+      "$eldeeb/*": ["src/app/eldeeb/*"],
+      "config": ["./config.js"]
     }
   }
 }
