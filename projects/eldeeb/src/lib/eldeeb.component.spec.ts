@@ -8,9 +8,8 @@ describe('EldeebComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EldeebComponent ]
-    })
-    .compileComponents();
+      declarations: [EldeebComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

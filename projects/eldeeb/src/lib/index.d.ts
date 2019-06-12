@@ -3,7 +3,8 @@
 ///<reference types="../../node_modules/@types/node/fs" />
 ///<reference path="../../node_modules/@types/node/fs.d.ts" />
 contains all types for all classes, organised in namespaces, each namespace contain types declarations for each corresponding class file
-todo: namespace Vs module https://www.typescriptlang.org/docs/handbook/modules.html -> Working with Other JavaScript Libraries -> Ambient Modules
+todo: namespace Vs module
+  https://www.typescriptlang.org/docs/handbook/modules.html -> Working with Other JavaScript Libraries -> Ambient Modules
 */
 
 export namespace types {

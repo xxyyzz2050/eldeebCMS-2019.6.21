@@ -48,6 +48,13 @@
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "no-namespace": false,
-    "no-empty-interface": false
+    "no-empty-interface": false,
+    "triple-equals": false,
+    "no-unused-expression": [
+      true,
+      "allow-fast-null-checks",
+      "allow-new",
+      "allow-tagged-template"
+    ]
   }
 }
