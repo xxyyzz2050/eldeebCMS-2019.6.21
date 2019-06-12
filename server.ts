@@ -9,8 +9,8 @@ import * as express from 'express';
 import { join } from 'path';
 
 // for firebase
-import { readFileSync } from 'fs';
-import { renderModuleFactory } from '@angular/platform-server';
+// import { readFileSync } from 'fs';
+// import { renderModuleFactory } from '@angular/platform-server';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -27,15 +27,17 @@ const {
   LAZY_MODULE_MAP
 } = require('./dist/server/main');
 
-// firebase:
-/*// Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+// Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine(
   'html',
-  ngExpressEngine({ //returns renderModuleFactory(path,options,callback)
+  ngExpressEngine({
+    // returns renderModuleFactory(path,options,callback)
     bootstrap: AppServerModuleNgFactory,
     providers: [provideModuleMap(LAZY_MODULE_MAP)]
   })
-);*/
+);
+// firebase: now we use AngularFire
+/*
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
@@ -50,7 +52,7 @@ app.engine('html', (filePath, options, callback) => {
     callback(null, html);
   });
 });
-
+*/
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
