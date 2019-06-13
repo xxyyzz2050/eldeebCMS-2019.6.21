@@ -14,11 +14,15 @@ ECHO 5. install
 ECHO 6. open command line here
 ECHO 7. generate documentation
 ECHO 8. build the libraries
+ECHO 9. deploy to firebase
+ECHO 10. all (generate all apps & deploy)
 ECHO.
 
 CHOICE /C 12345678 /T 5 /D 1 /N /M "select (default: run ssr/dev)"
 set task=%ERRORLEVEL%
 :: Don't add any space in task=
+IF %task% == 8 GOTO all
+IF %task% == 8 GOTO firebase
 IF %task% == 8 GOTO build
 IF %task% == 7 GOTO doc
 IF %task% == 6 GOTO cmd
@@ -53,10 +57,10 @@ pause
 :start
 if %task%==1 (
 ECHO starting the server in SSR/dev mode, and listining to localhost:4200
-call npm run dev
+call npm run start
 ) else if %task%==2 (
 ECHO starting the server in SSR/prod mode, and listining to localhost:4200
-call npm run start
+call npm run start:dev
 ) else (
 ECHO starting the server in browser mode "serve", and listining to localhost:4200
 ECHO warning! routs that need to connect to the server using HttpClient will break
@@ -92,6 +96,13 @@ GOTO End
 call npm run doc
 GOTO End
 
+:firebase
+call npm run deploy:firebase
+GOTO End
+
+:all
+call npm run all
+GOTO End
 
 :End
 pause
