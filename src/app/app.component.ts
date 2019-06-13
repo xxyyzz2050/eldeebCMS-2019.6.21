@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'eldeebCMS';
+
+  buttonClicked() {
+    alert('The Button was clicked');
+  }
 }

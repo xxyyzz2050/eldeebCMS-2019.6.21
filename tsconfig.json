@@ -24,8 +24,8 @@
       "*": ["node_modules/*", "src/types/*"],
       "eldeeb": ["projects/eldeeb"],
       "eldeeb/*": ["projects/eldeeb/src/lib/*"],
-      "$eldeeb/*": ["src/app/eldeeb/*"],
-      "config": ["./config.js"]
+      "config": ["./config.js"],
+      "jszip": ["node_modules/jszip/dist/jszip.min.js"]
     }
   }
 }

@@ -45,6 +45,9 @@
     "@ngx-formly/material": "^5.1.1",
     "bufferutil": "^4.0.1",
     "core-js": "^2.5.4",
+    "devextreme": "latest",
+    "devextreme-angular": "latest",
+    "devextreme-schematics": "^1.0.7",
     "express": "^4.15.2",
     "firebase": "^6.1.1",
     "hammerjs": "^2.0.8",
@@ -64,6 +67,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "devextreme-cli": "latest",
     "nativescript-dev-webpack": "^0.20.0",
     "@nativescript/schematics": "~0.4.0",
     "@angular-devkit/build-angular": "~0.13.0",
