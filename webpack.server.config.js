@@ -3,6 +3,10 @@
 const path = require("path");
 const webpack = require("webpack");
 
+//this plugin makes webpack use paths that defined in tsconfig.ts
+//https://github.com/dividab/tsconfig-paths-webpack-plugin
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+
 module.exports = {
   mode: "none",
   entry: {
@@ -12,7 +16,8 @@ module.exports = {
   target: "node",
   resolve: {
     extensions: [".ts", ".js"],
-    modules: [path.resolve("."), "node_modules"]
+    modules: [path.resolve("."), "node_modules"],
+    plugins: [new TsconfigPathsPlugin()]
   },
   optimization: {
     minimize: false

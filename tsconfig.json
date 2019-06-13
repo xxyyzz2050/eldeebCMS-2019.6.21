@@ -23,8 +23,8 @@
     "paths": {
       "*": ["node_modules/*", "src/types/*"],
       "eldeeb": ["projects/eldeeb"],
-      "eldeeb/*": ["projects/eldeeb/src/lib/*"],
-      "config": ["./config.js"],
+      "eldeeb/*": ["projects/eldeeb/src/lib/*", "../projects/eldeeb/src/lib/*"],
+      "config": ["config.js", "../config.js"],
       "jszip": ["node_modules/jszip/dist/jszip.min.js"]
     }
   }
