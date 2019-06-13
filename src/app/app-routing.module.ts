@@ -5,7 +5,7 @@ import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   {
     path: 'articles',
-    loadChildren: './articles/articles.module#ArticlesModule'
+    loadChildren: () => import('./articles/articles.module').then(m => m.ArticlesModule)
   },
 
   { path: '', redirectTo: '', pathMatch: 'full' },
