@@ -52,6 +52,7 @@
     "mongoose": "^5.5.11",
     "nativescript-angular": "~7.2.0",
     "nativescript-theme-core": "~1.0.4",
+    "ng-katex": "^1.2.1",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.3.3",
     "shortid": "^2.2.14",
