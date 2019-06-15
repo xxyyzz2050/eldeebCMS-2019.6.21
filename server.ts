@@ -37,10 +37,10 @@ app.engine(
   })
 );
 // firebase: now we use AngularFire
-/*
+
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
+/*
 app.engine('html', (filePath, options, callback) => {
   // todo: use ngExpressEngine() as a second parameter
   renderModuleFactory(AppServerModuleNgFactory, {
@@ -53,6 +53,7 @@ app.engine('html', (filePath, options, callback) => {
   });
 });
 */
+
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
