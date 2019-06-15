@@ -25,7 +25,9 @@ module.exports = {
   output: {
     // Puts the output at the root of the dist folder
     path: path.join(__dirname, "dist"),
-    filename: "[name].js"
+    filename: "[name].js",
+    library: "app",
+    libraryTarget: "umd"
   },
   module: {
     rules: [
