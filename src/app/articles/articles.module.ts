@@ -7,6 +7,7 @@ import { ArticlesRoutingModule } from './articles-routing.module';
 import { ArticleComponent } from './article/article.component';
 import { IndexComponent } from './index/index.component';
 import { ManageComponent } from './manage/manage.component';
+import { MetaService } from '../meta.service'; // todo: already added to app.module/providers
 
 @NgModule({
   declarations: [ArticleComponent, IndexComponent, ManageComponent],
@@ -15,6 +16,7 @@ import { ManageComponent } from './manage/manage.component';
     ArticlesRoutingModule,
     HttpClientModule,
     MatCardModule
-  ]
+  ],
+  providers: [MetaService]
 })
 export class ArticlesModule {}

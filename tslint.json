@@ -27,7 +27,7 @@
     "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
     "no-empty": false,
     "no-inferrable-types": [true, "ignore-params"],
-    "no-non-null-assertion": true,
+    "no-non-null-assertion": false,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
@@ -55,6 +55,18 @@
       "allow-fast-null-checks",
       "allow-new",
       "allow-tagged-template"
-    ]
+    ],
+    "prefer-const": true,
+    "forin": false,
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-trailing-underscore",
+        "allow-pascal-case"
+      ]
+    },
+    "one-line": false
   }
 }
