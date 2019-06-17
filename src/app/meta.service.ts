@@ -24,6 +24,9 @@ export class MetaService {
   ) {}
 
   setTags(tags: types.Meta = {}) {
+    // clone tags to garantee that the original data not changes; todo: perform a deep clone
+    // https://medium.com/nodesimplified/javascript-pass-by-value-and-pass-by-reference-in-javascript-fcf10305aa9c
+    tags = Object.assign({}, tags);
     const defaultTags = {
       viewport: 'width=device-width, initial-scale=1,maximum-scale=1.0',
       type: 'website',
@@ -76,7 +79,9 @@ export class MetaService {
     // set meta tags
     const _tags = [];
     for (const key in tags) {
-      if (tags[key]) { _tags.push(this.prepare(key, tags[key])); }
+      if (tags[key]) {
+        _tags.push(this.prepare(key, tags[key]));
+      }
     }
     this.meta.addTags(_tags, false);
     // todo: icon, refresh:url | [url,time],
@@ -120,5 +125,18 @@ export class MetaService {
 
     // todo: itemprop i.e: <meta name> VS <meta itemprop>
     return { [prop]: key, content: value };
+  }
+
+  filter(tags) {
+    const allowed = ['title', 'description', 'content', 'refresh']; // todo: list all allowed meta tags
+
+    Object.keys(tags)
+      .filter(key => allowed.includes(key))
+      .reduce((obj, key) => ({ ...obj, [key]: tags[key] }), {});
+
+    /* using ES2019 fromEntries()
+    return Object.fromEntries(
+      Object.entries(tags).filter(([key, val]) => allowed.includes(key))
+    );*/
   }
 }
