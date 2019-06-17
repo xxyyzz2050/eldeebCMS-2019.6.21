@@ -19,6 +19,7 @@ export class GetArticlesService {
     // todo: Observable<...>
     return this.http.get<types.Article | types.Post[]>(
       `http://localhost:4200/articles/api/${url}`
+      // todo: dynamically get the current domain
     );
   }
 }
