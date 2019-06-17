@@ -19,7 +19,8 @@
     "preview": "tns preview --bundle",
     "deploy:github": "ng build --prod --output-path docs --base-href /eldeebCMS/",
     "deploy:firebase": "npm run build:ssr && npm run compile:ssr  && firebase deploy",
-    "all": "npm run build:ssr && npm run compile:ssr && npm run deploy:github && firebase deploy && mobile && npm run serve:ssr"
+    "all": "npm run build:ssr && npm run compile:ssr && npm run deploy:github && firebase deploy && mobile && npm run serve:ssr",
+    "check": "npx npm-check -u"
   },
   "private": false,
   "dependencies": {
@@ -54,6 +55,7 @@
     "nativescript-angular": "~7.2.0",
     "nativescript-theme-core": "~1.0.4",
     "ng-katex": "^1.2.1",
+    "npm-check": "^5.9.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.5.2",
     "shortid": "^2.2.14",
