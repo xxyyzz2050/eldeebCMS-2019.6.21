@@ -1,16 +1,18 @@
 /* Start writing Firebase Functions
 https://firebase.google.com/docs/functions/typescript
 */
-
+import * as functions from 'firebase-functions';
 /*
 export const helloWorld = functions.https.onRequest((request, response) => {
   response.send('Hello from Firebase!');
 });
 */
 
+/*
+//from https://angularfirebase.com/lessons/server-side-rendering-firebase-angular-universal/
+
 require('zone.js/dist/zone-node');
 
-const functions = require('firebase-functions');
 const express = require('express');
 const path = require('path');
 const { enableProdMode } = require('@angular/core');
