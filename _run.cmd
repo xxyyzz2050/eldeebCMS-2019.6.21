@@ -57,10 +57,10 @@ pause
 :start
 if %task%==1 (
 ECHO starting the server in SSR/dev mode, and listining to localhost:4200
-call npm run start
+call npm run start-dev
 ) else if %task%==2 (
 ECHO starting the server in SSR/prod mode, and listining to localhost:4200
-call npm run start:dev
+call npm run start
 ) else (
 ECHO starting the server in browser mode "serve", and listining to localhost:4200
 ECHO warning! routs that need to connect to the server using HttpClient will break
@@ -77,7 +77,9 @@ ECHO installing packages....
 call npm i
 cd projects/eldeeb
 call npm i
-cd ../../
+cd ../../functions
+call npm i
+cd ../
 :: peerDependencies for all libraries are included in dependencies of workspace's package.json, so we don't need to manually add them here
 :: also build the libraries,todo: no need for --watch here
 GOTO build
