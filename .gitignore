@@ -4,7 +4,7 @@
 __Draft/gitignore/*
 __old
 *.lnk
-src/app/_temp
+**/temp
 *.cache
 *.log
 /.firebase
@@ -16,10 +16,10 @@ functions/dist
 node_modules
 
 # compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+**/dist
+**/tmp
+**/out-tsc
+**/bazel-out
 
 # NativeScript
 platforms/
