@@ -1,3 +1,19 @@
+import path from "path";
+
+console.log("=======\n", {
+  ver: 12,
+  __dirname,
+  "process.cwd()": process.cwd(),
+  "process.env.PWD": process.env.PWD,
+  ".": path.resolve("."),
+  basename: path.basename(__dirname),
+  resolve: path.resolve(__dirname),
+  //  "require.main.filename": path.dirname(require.main.filename),
+  "process.argv[1]": process.argv[1]
+});
+
+export let root = "../"; //todo: path of this dir, check get-articles.api.ts
+
 export let firebase = {
   apiKey: "AIzaSyCxIOB2v53gGWYxaSrVkbRTT4G5_Gq-HEI",
   authDomain: "eldeebcms.firebaseapp.com",
@@ -23,6 +39,7 @@ export let meta = {
 };
 
 export default {
+  root,
   firebase,
   db,
   meta
