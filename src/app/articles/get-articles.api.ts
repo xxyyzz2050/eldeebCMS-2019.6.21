@@ -9,7 +9,8 @@ export class GetArticlesAPI {
 */
   get(url: string): Promise<any> {
     // todo: Observable<types.article | types.post[]>
-    return fs.cache('/src/app/temp/test.json', () =>
+    config.root = '../'; // todo: temp, untill cinfig.root fixed
+    return fs.cache(`${config.root}src/app/temp/test.json`, () =>
       this.fetchData(this.getParts(url))
     );
   }
