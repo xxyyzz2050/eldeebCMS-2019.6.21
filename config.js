@@ -1,5 +1,7 @@
 import path from "path";
 
+//todo: tmp: just for test with `firebase serve`, it should give the root path, not the working directory path i.e /functions
+
 console.log("=======\n", {
   ver: 12,
   __dirname,
@@ -11,8 +13,6 @@ console.log("=======\n", {
   //  "require.main.filename": path.dirname(require.main.filename),
   "process.argv[1]": process.argv[1]
 });
-
-export let root = "../"; //todo: path of this dir, check get-articles.api.ts
 
 export let firebase = {
   apiKey: "AIzaSyCxIOB2v53gGWYxaSrVkbRTT4G5_Gq-HEI",
