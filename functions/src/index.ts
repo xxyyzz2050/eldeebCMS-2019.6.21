@@ -1,41 +1,15 @@
-/* Start writing Firebase Functions
-https://firebase.google.com/docs/functions/typescript
-*/
+require('zone.js/dist/zone-node'); // todo: why?
+
 import * as functions from 'firebase-functions';
-/*
-export const helloWorld = functions.https.onRequest((request, response) => {
-  response.send('Hello from Firebase!');
-});
-*/
-
-/*
-//from https://angularfirebase.com/lessons/server-side-rendering-firebase-angular-universal/
-
-require('zone.js/dist/zone-node');
-
-const express = require('express');
-const path = require('path');
-const { enableProdMode } = require('@angular/core');
-const { renderModuleFactory } = require('@angular/platform-server');
-const { AppServerModuleNgFactory } = require('../server/main');
+import { enableProdMode } from '@angular/core';
 
 enableProdMode();
 
-const index = require('fs')
-  .readFileSync(path.resolve(__dirname, './index.html'), 'utf8')
-  .toString();
-
-const app = express();
-
-app.get('**', (req, res) => {
-  renderModuleFactory(AppServerModuleNgFactory, {
-    url: req.path,
-    document: index
-  }).then(html => res.status(200).send(html));
+// to test: https://us-central1-eldeebcms.cloudfunctions.net/helloWorld
+export const test = functions.https.onRequest((request, response) => {
+  response.send('firebase function works');
 });
 
-exports.ssr = functions.https.onRequest(app);
-/*
-const universal = require(`${process.cwd()}/dist/server`).app;
+// import express routes (i.e app.get(..)) from /dist/server
+const universal = require('../server').app; // relative to /dist/browser/index.js, todo: $root/dist/server.js
 export const ssr = functions.https.onRequest(universal);
- */
