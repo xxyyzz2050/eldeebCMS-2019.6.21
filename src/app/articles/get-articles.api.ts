@@ -10,6 +10,7 @@ export class GetArticlesAPI {
   get(url: string): Promise<any> {
     // todo: Observable<types.article | types.post[]>
 
+    config.root = '../'; // todo: temp, untill cinfig.root fixed
     return fs.cache(`${config.root}src/app/temp/test.json`, () =>
       this.fetchData(this.getParts(url))
     );
