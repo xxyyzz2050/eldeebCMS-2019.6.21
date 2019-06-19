@@ -15,7 +15,7 @@
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:server": "nodemon dist/server --inspaect --open --watch",
     "serve:browser": "ng serve --open --watch",
-    "serve:firebase": "npx firebase serve",
+    "serve:firebase": "npx firebase serve --token 1/NCpojw7oPKfwz-BFuLMqDRsUgUFMQWPPQIUnSYPArDWJhdpp1MVAKo_wQ9nrAwGj",
     "webpack": "npm run webpack:server",
     "serve": "npm run serve:server",
     "test": "ng test",
@@ -27,7 +27,7 @@
     "mobile": "tns run --bundle",
     "preview": "tns preview --bundle",
     "deploy:github": "ng build --prod --output-path docs --base-href /eldeebCMS/",
-    "deploy:firebase": "npx firebase serve && npx firebase deploy",
+    "deploy:firebase": "npm run serve:firebase  && npx firebase deploy",
     "all": "npm run start && npm run deploy:firebase && npm run deploy:github && mobile",
     "check": "npx npm-check -u"
   },
