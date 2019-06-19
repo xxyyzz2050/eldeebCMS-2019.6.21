@@ -27,7 +27,7 @@
     "mobile": "tns run --bundle",
     "preview": "tns preview --bundle",
     "deploy:github": "ng build --prod --output-path docs --base-href /eldeebCMS/",
-    "deploy:firebase": "npm run serve:firebase  && npx firebase deploy",
+    "deploy:firebase": "npx firebase deploy  --token 1/NCpojw7oPKfwz-BFuLMqDRsUgUFMQWPPQIUnSYPArDWJhdpp1MVAKo_wQ9nrAwGj",
     "all": "npm run start && npm run deploy:firebase && npm run deploy:github && mobile",
     "check": "npx npm-check -u"
   },
