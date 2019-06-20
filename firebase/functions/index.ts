@@ -5,8 +5,7 @@ import { enableProdMode } from '@angular/core';
 
 enableProdMode();
 
-// to test: https://us-central1-eldeebcms.cloudfunctions.net/helloWorld
-
+// to test: https://us-central1-eldeebcms.cloudfunctions.net/<functionName>
 export const test = functions.https.onRequest((request, response) => {
   response.send('firebase function works');
 });

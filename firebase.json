@@ -1,13 +1,14 @@
 {
   "database": {
-    "rules": "firebase-database-rules.json"
+    "rules": "firebase/database-rules.json"
   },
   "firestore": {
-    "rules": "firebase-firestone-rules.txt",
-    "indexes": "firebase-firestone-indexes.json"
+    "rules": "firebase/firestone-rules.txt",
+    "indexes": "firebase/firestone-indexes.json"
   },
   "functions": {
-    "predeploy": []
+    "predeploy": "",
+    "source": "firebase"
   },
   "hosting": {
     "public": "./dist/browser",
@@ -20,6 +21,6 @@
     ]
   },
   "storage": {
-    "rules": "firebase-storage-rules.txt"
+    "rules": "firebase/storage-rules.txt"
   }
 }
