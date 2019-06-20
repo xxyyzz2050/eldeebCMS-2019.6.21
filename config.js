@@ -1,20 +1,20 @@
-import path from "path";
+/*import path from "path";
 
 //todo: tmp: just for test with `firebase serve`, it should give the root path, not the working directory path i.e /functions
+
 console.log("=======\n", {
-  ver: 12,
-  __dirname,
-  "process.cwd()": process.cwd(),
-  "process.env.PWD": process.env.PWD,
+  ver: 14,
+  //__dirname,
+  //  "process.cwd()": process.cwd(),
+  //  "process.env.PWD": process.env.PWD,
   ".": path.resolve("."),
-  basename: path.basename(__dirname),
-  resolve: path.resolve(__dirname),
+  //  basename: path.basename(__dirname),
+  //  resolve: path.resolve(__dirname),
   //  "require.main.filename": path.dirname(require.main.filename),
   "process.argv[1]": process.argv[1]
 });
-
-export let root = path.resolve(__dirname); //path of this dir, todo: when run `firebase serve` it refers to /functions dir, not the project root
-
+export const root = path.resolve(); //todo: when run `firebase serve` it refers to /functions not root dir
+*/
 export let firebase = {
   apiKey: "AIzaSyCxIOB2v53gGWYxaSrVkbRTT4G5_Gq-HEI",
   authDomain: "eldeebcms.firebaseapp.com",
@@ -40,7 +40,7 @@ export let meta = {
 };
 
 export default {
-  root,
+  //  root,
   firebase,
   db,
   meta

@@ -15,7 +15,7 @@
     "lib": ["es2018", "es2019", "dom"],
     "locale": "en",
     "strict": false,
-    "watch": true,
+    "watch": false,
     "removeComments": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,

@@ -7,6 +7,7 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import * as express from 'express';
 import { join } from 'path';
+import cors from 'cors';
 
 // for firebase
 // import { readFileSync } from 'fs';
@@ -17,6 +18,7 @@ enableProdMode();
 
 // Express server
 const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 4200;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
