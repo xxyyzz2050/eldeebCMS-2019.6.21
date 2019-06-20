@@ -75,11 +75,9 @@ GOTO End
 :install
 ECHO installing packages....
 call npm i
-cd projects/eldeeb
-call npm i
-cd ../../functions
-call npm i
-cd ../
+call npm i --prefix ./projects/eldeeb
+call npm i --prefix ./functions
+
 :: peerDependencies for all libraries are included in dependencies of workspace's package.json, so we don't need to manually add them here
 :: also build the libraries,todo: no need for --watch here
 GOTO build
