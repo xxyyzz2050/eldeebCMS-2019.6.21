@@ -43,3 +43,4 @@ or `npm e2e` to execute the end-to-end unit tests via [Protractor](http://www.pr
 ## contributing
 
 your contributing is always welcome.
+join [Angular & Firebase group](facebook.com/groups/angular.firebase/) to help us grow
