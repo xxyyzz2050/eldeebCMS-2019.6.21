@@ -5,5 +5,5 @@
     "target": "es2017",
     "outDir": "../dist/firebase"
   },
-  "include": ["src"]
+  "include": ["functions"]
 }
