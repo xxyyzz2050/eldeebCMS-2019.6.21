@@ -30,14 +30,16 @@ export class GetArticlesAPI {
   // todo: cache(type/id, ()=>db.get()); edeeb/db-mongoDB, eldeeb/files->cache()
   // todo: return schema.article | schema.article[]
   private fetchData(parts: types.Parts) {
-    return {
+    console.log('== fetchdata #1 ==');
+    const data = {
+      test: 1,
       title: 'article title',
       subtitle: 'article sub-title',
       content: '=========== content ============',
       author: { name: ['first', 'last'], img: 'assets/test/avatar.jpg' },
       img: 'assets/test/post-image.jpg'
     };
-
+    // return data;
     return mongoose
       .connect(config.db)
       .then(db => {
@@ -45,8 +47,7 @@ export class GetArticlesAPI {
         // let myModel = mongoose.model("articles", { title: "string" }).model;
         // console.log("model: ", myModel);
         // todo: create models
-
-        return { title: 'Title', content: 'Content' };
+        return data;
       })
       .catch(err => console.log(err));
   }
