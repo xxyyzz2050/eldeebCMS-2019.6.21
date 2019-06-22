@@ -14,13 +14,8 @@ app.on('activate', () => {
 
 function createWindow() {
   win = new BrowserWindow();
-  win.loadURL(
-    url.format({
-      pathname: path.join(__dirname, `./browser/index.html`),
-      protocol: 'file:',
-      slashes: true
-    })
-  );
+  const universal = require('../server').app;
+  win.loadURL('http://localhost:4200/');
 
   // todo: if dev mode
   win.webContents.openDevTools();

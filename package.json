@@ -13,7 +13,7 @@
     "build:server-dev": "ng run eldeebCMS:server",
     "build:firebase": "npm --prefix ./firebase run build --prod",
     "build:firebase-dev": "npm --prefix ./firebase run build",
-    "build:electron": "ng build --base-href ./ --output-path dist/electron/browser && tsc --p projects/electron ",
+    "build:electron": "tsc --p projects/electron ",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:server": "nodemon dist/server --inspaect --open --watch",
     "serve:browser": "ng serve --open --watch",
@@ -30,7 +30,7 @@
     "preview": "tns preview --bundle",
     "deploy:github": "ng build --prod --output-path docs --base-href /eldeebCMS/",
     "deploy:firebase": "npx firebase deploy  --token 1/-cuYL8hksXU161i1XHw2bsyx0jckZ5PTFCBMCt-ZVUY",
-    "all": "npm run start && npm run deploy:firebase && npm run deploy:github && mobile",
+    "all": "npm run start && npm run deploy:firebase && npm run deploy:github && mobile && build electron",
     "check": "npx npm-check -u"
   },
   "private": false,
