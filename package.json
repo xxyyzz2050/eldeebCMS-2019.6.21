@@ -17,7 +17,7 @@
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:server": "nodemon dist/server --inspaect --open --watch",
     "serve:browser": "ng serve --open --watch",
-    "serve:firebase": "npx firebase serve --token 1/-cuYL8hksXU161i1XHw2bsyx0jckZ5PTFCBMCt-ZVUY",
+    "serve:firebase": "npm run serve:server | npx firebase serve --token 1/-cuYL8hksXU161i1XHw2bsyx0jckZ5PTFCBMCt-ZVUY",
     "webpack": "npm run webpack:server",
     "serve": "npm run serve:server",
     "test": "ng test",
