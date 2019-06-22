@@ -2,6 +2,7 @@ import { types } from './types'; // to use /// <reference path="./types.ts"/> re
 import * as mongoose from 'eldeeb/mongoose';
 import * as fs from 'eldeeb/fs';
 import config from 'config';
+import path from 'path';
 
 export class GetArticlesAPI {
   /* link=/{{site=articles|jobs|.../}}($category/$link-title/)/{{type=category|article}}-{{ObjectId}}
@@ -11,6 +12,11 @@ export class GetArticlesAPI {
     // todo: Observable<types.article | types.post[]>
 
     config.root = '../'; // todo: temp, untill cinfig.root fixed
+    // tmp:
+    console.log(
+      'cache file: ',
+      path.resolve(`${config.root}src/app/temp/test.json`)
+    );
     return fs.cache(`${config.root}src/app/temp/test.json`, () =>
       this.fetchData(this.getParts(url))
     );

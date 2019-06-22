@@ -2,6 +2,7 @@
   "name": "electron",
   "version": "0.0.0",
   "main": "../../dist/electron/main.js",
+  "author": "eldeeb<facebook.com/eng.dibo>",
   "scripts": {
     "build": ""
   }
