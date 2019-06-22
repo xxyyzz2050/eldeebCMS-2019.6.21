@@ -2,7 +2,7 @@
 
 a modern CMS build on [Angular Uiversal](https://angular.io)
 
-[Demo](https://angular.io)
+[Demo](https://eldeebcms.firebaseapp.com/)
 
 - automatically generates codes for native mobile apps (Android & IOS) and a modern website.
 
