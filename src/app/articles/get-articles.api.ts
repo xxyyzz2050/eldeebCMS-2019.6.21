@@ -39,7 +39,7 @@ export class GetArticlesAPI {
       author: { name: ['first', 'last'], img: 'assets/test/avatar.jpg' },
       img: 'assets/test/post-image.jpg'
     };
-    // return data;
+    return data; // todo: return real data from database
     return mongoose
       .connect(config.db)
       .then(db => {

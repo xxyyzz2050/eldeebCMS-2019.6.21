@@ -1,4 +1,9 @@
-// Work around for https://github.com/angular/angular-cli/issues/7200
+/*
+creats dist/server.js contains our express server (i.e /server.ts)
+as the entry file, and all other files it uses, such as get-articles.api.ts
+or other file it requires
+from: https://github.com/angular/angular-cli/issues/7200
+ */
 
 const path = require("path");
 const webpack = require("webpack");
