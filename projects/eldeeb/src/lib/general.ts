@@ -8,10 +8,14 @@ todo:
 
 import util from 'util';
 
+// todo: test if this function exports module keys & work correctly
 export function exportAll(module: any) {
+  /* todo:
   Object.keys(module).forEach(key => {
-    exports[key] = module[key]; // todo: ES export i.e export key = mongoose[key]
+    exports[key] = module[key];
+    // todo:  export const [key] = module[key];
   });
+  */
 }
 
 /**
@@ -67,7 +71,9 @@ export function inArray(
   if (!caseSensitive && typeof element == 'string') {
     element = element.toLowerCase();
   }
-  if (typeof array == 'string') { return !!array.indexOf(element); } // !! to convert umber to boolean
+  if (typeof array == 'string') {
+    return !!array.indexOf(element);
+  } // !! to convert umber to boolean
   if (isIterable(array)) {
     for (let i = 0; i < (array as Array<any>).length; i++) {
       return (
@@ -77,7 +83,9 @@ export function inArray(
           array[i].toLowerCase() == element)
       );
     }
-  } else if (typeof array == 'object') { return element in array; }
+  } else if (typeof array == 'object') {
+    return element in array;
+  }
 }
 
 /**
@@ -134,7 +142,9 @@ export function merge(target: any, ...obj: any[]): any {
   return this.run({ run: 'merge', ...arguments }, () => {
     const type = objectType(target); // todo: error: Cannot read property 'objectType' of undefined
     for (let i = 1; i < _arg.length; i++) {
-      if (this.objectType(_arg[i]) !== type) { return target; }
+      if (this.objectType(_arg[i]) !== type) {
+        return target;
+      }
     }
     if (type == 'array') {
       target = target.concat(...obj);
@@ -155,7 +165,9 @@ export function merge(target: any, ...obj: any[]): any {
 
 export function json(data: string | object) {
   if (typeof data == 'string') {
-    if (data.trim().charAt(0) == '{') { return JSON.parse(data); }
+    if (data.trim().charAt(0) == '{') {
+      return JSON.parse(data);
+    }
     if (
       data
         .split('.')
@@ -163,10 +175,15 @@ export function json(data: string | object) {
         .toLowerCase() == 'json'
     ) {
       return require(data);
-    } // load a .json file, todo: ES2015 modules don't allow dynamic imports, and causes typescript error: 'Critical dependency: the request of a dependency is an expression'
+    }
+    // load a .json file,
+    // todo: ES2015 modules don't allow dynamic imports, and causes typescript error:
+    // 'Critical dependency: the request of a dependency is an expression'
     // todo: move this part to files class
     data = require('fs').readFileSync(data);
     return JSON.parse(data as string);
-  } else { return JSON.stringify(data); }
+  } else {
+    return JSON.stringify(data);
+  }
   // nx: if(string & !start)
 }
