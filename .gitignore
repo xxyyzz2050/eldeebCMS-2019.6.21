@@ -9,6 +9,7 @@ __old
 *.log
 /.firebase
 **/*.js.map
+config.ts
 #don't ignore package-lock.json because it used by npm to install the exactly same versions of dependencies, https://stackoverflow.com/a/50868690
 
 #---------------------------
