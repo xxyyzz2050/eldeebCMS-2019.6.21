@@ -97,7 +97,7 @@
     "bufferutil": "^4.0.1",
     "codelyzer": "^5.0.1",
     "devextreme-cli": "latest",
-    "electron": "^5.0.5",
+    "electron": "^7.2.4",
     "electron-builder": "^20.44.4",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
